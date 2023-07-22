@@ -23,7 +23,7 @@ const usersSchema = new mongoose.Schema({
         type: String
     },
     resume: {
-        type: File
+        type: String
     },
     profession: {
         type: Array
