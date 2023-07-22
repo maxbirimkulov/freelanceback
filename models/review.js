@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema({
-    createrId: {
+    creatorId: {
         type: String,
         required: true
     },

@@ -7,11 +7,11 @@ export const registerUser = async (req, res) => {
 
         const {password, ...user} = req.body
 
-        const idx = await  UsersModel.findOne({
+        const idx = await UsersModel.findOne({
             email: req.body.email
         })
 
-        if ('email' in idx ) {
+        if (idx) {
             res.status(400).json({
                 message: 'Такой аккаунт уже существует'
             })

@@ -29,3 +29,15 @@ export const resetPasswordValidation = [
     body('oldPassword', 'Пароль должен быть минимум 8 символов').isLength({min:8}),
     body('newPassword', 'Пароль должен быть минимум 8 символов').isLength({min:8})
 ]
+
+export const addReviewValidation = [
+    body('creatorId','Неверный формат id создателя').isMongoId(),
+    body('title', 'Заголовок отзыва минимум 2 символа').isLength({min:2}),
+    body('description', 'Описание отзыва минимум 3 символа').isLength({min:3}),
+    body('userId', 'Неверный формат id получателя').isLength({min:3})
+]
+
+export const editReviewValidation = [
+    body('title', 'Заголовок отзыва минимум 2 символа').isLength({min:2}),
+    body('description', 'Описание отзыва минимум 3 символа').isLength({min:3})
+]
