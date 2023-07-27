@@ -11,7 +11,7 @@ import {loginUser, registerUser, resetPassword} from "./controller/auth.js";
 import checkAuth from "./validations/checkAuth.js";
 import {addReview, deleteOneReview, editOneReview, getAllReviews, getOneReview} from "./controller/reviews.js";
 import cors from 'cors'
-import {getAllUser} from "./controller/users.js";
+import {getAllUser, getOneUser} from "./controller/users.js";
 
 const api = express()
 
@@ -34,6 +34,7 @@ api.post('/login', loginUserValidation, handeValidators, loginUser)
 api.patch('/reset/password', resetPasswordValidation, handeValidators, checkAuth, resetPassword)
 
 api.get('/users', getAllUser)
+api.get('/users/:id', getOneUser)
 
 // reviews
 
