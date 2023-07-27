@@ -10,10 +10,13 @@ import handeValidators from "./validations/validations.js"
 import {loginUser, registerUser, resetPassword} from "./controller/auth.js";
 import checkAuth from "./validations/checkAuth.js";
 import {addReview, deleteOneReview, editOneReview, getAllReviews, getOneReview} from "./controller/reviews.js";
+import cors from 'cors'
+import {getAllUser} from "./controller/users.js";
 
 const api = express()
 
 api.use(express.json())
+api.use(cors())
 
 const mongoDBPassword = 'itrun2023'
 
@@ -30,6 +33,7 @@ api.post('/register', registerUserValidation, handeValidators, registerUser)
 api.post('/login', loginUserValidation, handeValidators, loginUser)
 api.patch('/reset/password', resetPasswordValidation, handeValidators, checkAuth, resetPassword)
 
+api.get('/users', getAllUser)
 
 // reviews
 
