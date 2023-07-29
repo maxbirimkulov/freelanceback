@@ -41,3 +41,17 @@ export const editReviewValidation = [
     body('title', 'Заголовок отзыва минимум 2 символа').isLength({min:2}),
     body('description', 'Описание отзыва минимум 3 символа').isLength({min:3})
 ]
+
+export const addOrderValidation = [
+    body('creatorId','Неверный формат id создателя').isMongoId(),
+    body('title', 'Заголовок отзыва минимум 2 символа').isLength({min:2}),
+    body('description', 'Описание отзыва минимум 3 символа').isLength({min:3}),
+    body('executorId', 'Неверный формат id получателя').optional().isLength({min:3}),
+    body('category', 'Неверный формат категории').isString(),
+    body('price', 'Неверный формат цены').isNumeric(),
+    body('deadline', 'Неверный формат дедлайна').isNumeric(),
+    body('technology', 'Неверный формат технологий').isArray(),
+    body('responses', 'Неверный формат откликов').isArray(),
+    body('views', 'Неверный формат просмотров').isNumeric(),
+    body('status', 'Неверный формат статуса').isString()
+]

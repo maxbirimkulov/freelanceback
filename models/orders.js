@@ -26,7 +26,7 @@ const ordersSchema = new mongoose.Schema({
         required: true
     },
     responses: {
-        type: String,
+        type: Array,
         required: true
     },
     views: {

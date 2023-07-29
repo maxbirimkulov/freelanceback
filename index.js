@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from "mongoose";
 import {
+    addOrderValidation,
     addReviewValidation, editReviewValidation,
     loginUserValidation,
     registerUserValidation,
@@ -12,6 +13,7 @@ import checkAuth from "./validations/checkAuth.js";
 import {addReview, deleteOneReview, editOneReview, getAllReviews, getOneReview} from "./controller/reviews.js";
 import cors from 'cors'
 import {getAllUser, getOneUser} from "./controller/users.js";
+import {createOrder, deleteOneOrder, editOneOrder, getAllOrders, getOneOrder} from "./controller/orders.js";
 
 const api = express()
 
@@ -46,7 +48,16 @@ api.patch('/reviews/:id', editReviewValidation, handeValidators, checkAuth, edit
 api.delete('/reviews/:id', checkAuth, deleteOneReview)
 
 
+// orders
 
+api.post('/orders', addOrderValidation, handeValidators, checkAuth, createOrder)
+api.get('/orders',getAllOrders)
+api.get('/orders/:id',getOneOrder)
+api.patch('/orders/:id',checkAuth, editOneOrder)
+api.delete('/orders/:id',checkAuth, deleteOneOrder)
+
+
+//
 
 
 api.listen(PORT, () => {

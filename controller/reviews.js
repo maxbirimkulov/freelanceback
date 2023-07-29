@@ -4,7 +4,6 @@ export const addReview = async (req, res) => {
     try {
 
         const doc = new ReviewsModel(req.body)
-
         await doc.save()
 
         res.json({
