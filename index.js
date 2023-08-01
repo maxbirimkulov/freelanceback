@@ -14,6 +14,7 @@ import {addReview, deleteOneReview, editOneReview, getAllReviews, getOneReview} 
 import cors from 'cors'
 import {getAllUser, getOneUser} from "./controller/users.js";
 import {createOrder, deleteOneOrder, editOneOrder, getAllOrders, getOneOrder} from "./controller/orders.js";
+import {addResponse, getAllResponse} from "./controller/responses.js";
 
 const api = express()
 
@@ -57,7 +58,10 @@ api.patch('/orders/:id',checkAuth, editOneOrder)
 api.delete('/orders/:id',checkAuth, deleteOneOrder)
 
 
-//
+// responses
+
+api.get('/responses', checkAuth, getAllResponse)
+api.post('/responses', checkAuth, addResponse)
 
 
 api.listen(PORT, () => {

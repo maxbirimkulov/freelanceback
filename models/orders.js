@@ -25,10 +25,6 @@ const ordersSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    responses: {
-        type: Array,
-        required: true
-    },
     views: {
         type: Number,
         required:true

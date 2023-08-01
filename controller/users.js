@@ -11,7 +11,6 @@ export const getAllUser = async (req, res) => {
             status: req.query.status
         })
 
-
         res.json(users)
 
     } catch (err) {

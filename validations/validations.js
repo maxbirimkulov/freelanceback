@@ -51,7 +51,6 @@ export const addOrderValidation = [
     body('price', 'Неверный формат цены').isNumeric(),
     body('deadline', 'Неверный формат дедлайна').isNumeric(),
     body('technology', 'Неверный формат технологий').isArray(),
-    body('responses', 'Неверный формат откликов').isArray(),
     body('views', 'Неверный формат просмотров').isNumeric(),
     body('status', 'Неверный формат статуса').isString()
 ]
